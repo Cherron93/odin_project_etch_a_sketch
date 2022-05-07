@@ -17,16 +17,16 @@ body {
 
 #gridContainer {
   display: flex;
-  height: 90%;
-  width: 90%;
+  height: 800px;
+  width: 800px;
   flex-wrap: wrap;
   justify-content: space-evenly;
   margin-bottom: 5%;
 }
 
 .gridSquare {
-  height: 6.25%;
-  width: 6.25%;
+  height: 50px;
+  width: 50px;
   border: 1px solid black;
   background-color: steelblue;
   cursor: pointer;
@@ -34,4 +34,16 @@ body {
 
 .orange {
   background-color: orange;
+}
+
+@media (max-width: 800px) {
+  #gridContainer {
+    height: 400px;
+    width: 400px;
+  }
+
+  .gridSquare {
+    height: 25px;
+    width: 25px;
+  }
 }
