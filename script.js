@@ -17,6 +17,10 @@ function removeAllChildNodes(parent) {
     }
 };
 
+function makeRandColor() {
+    return `rgb(${(Math.round((Math.random())*255))}, ${(Math.round((Math.random())*255))}, ${(Math.round((Math.random())*255))})`
+}
+
 
 newGridBtn.addEventListener('click', function createNewGrid () {
     let newDimensions = prompt('Tell me how many squares per side');
@@ -29,7 +33,7 @@ newGridBtn.addEventListener('click', function createNewGrid () {
             div.style.height = `${gridContainer.clientHeight / newDimensions}px`
             div.classList.add('gridSquare');
             div.addEventListener('mouseenter', () => {
-                div.style.backgroundColor = 'orange';
+                div.style.backgroundColor = makeRandColor();
             })
         };
     } else {
@@ -41,8 +45,9 @@ const gridSquares = document.querySelectorAll('.gridSquare')
 
 for (const gridSquare of gridSquares) {
     gridSquare.addEventListener('mouseenter', () => {
-        gridSquare.style.backgroundColor = 'orange';
+        gridSquare.style.backgroundColor = makeRandColor();
     })
 };
+
 
 
