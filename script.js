@@ -21,6 +21,17 @@ function makeRandColor() {
     return `rgb(${(Math.round((Math.random())*255))}, ${(Math.round((Math.random())*255))}, ${(Math.round((Math.random())*255))})`
 }
 
+function darkenColor(gridSquare) {
+    let rgb = gridSquare.style.backgroundColor
+    rgb = rgb.substring(4, rgb.length-1)
+    .replace(/ /g, '')
+    .split(',');
+    let rValue = parseInt(rgb[0]) - 25.5;
+    let gValue = parseInt(rgb[1]) - 25.5;
+    let bValue = parseInt(rgb[2]) - 25.5;
+    return `rgb(${rValue},${gValue},${bValue})`
+}
+
 
 newGridBtn.addEventListener('click', function createNewGrid () {
     let newDimensions = prompt('Tell me how many squares per side');
@@ -33,7 +44,11 @@ newGridBtn.addEventListener('click', function createNewGrid () {
             div.style.height = `${gridContainer.clientHeight / newDimensions}px`
             div.classList.add('gridSquare');
             div.addEventListener('mouseenter', () => {
-                div.style.backgroundColor = makeRandColor();
+                if (div.style.backgroundColor === '') {
+                    div.style.backgroundColor = makeRandColor();
+                } else {
+                    div.style.backgroundColor = darkenColor(div);
+                }
             })
         };
     } else {
@@ -45,9 +60,11 @@ const gridSquares = document.querySelectorAll('.gridSquare')
 
 for (const gridSquare of gridSquares) {
     gridSquare.addEventListener('mouseenter', () => {
-        gridSquare.style.backgroundColor = makeRandColor();
-    })
+        if (gridSquare.style.backgroundColor === '') {
+            gridSquare.style.backgroundColor = makeRandColor();
+        } else {
+            gridSquare.style.backgroundColor = darkenColor(gridSquare);
+        }
+    });
 };
-
-
-
+    
