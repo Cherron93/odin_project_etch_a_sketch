@@ -1,12 +1,22 @@
 const gridContainer = document.querySelector('#gridContainer');
 const newGridBtn = document.querySelector('#newGridBtn');
 
+// Create initial grid
+// for (let i = 0; i < 256; i++) {
+//     gridContainer.clientHeight = gridContainer.clientWidth;
+//     let div = document.createElement('div');
+//     gridContainer.appendChild(div);
+//     div.classList.add('gridSquare');
+//     div.style.width = `${gridContainer.clientWidth / 16}px`
+//     div.style.height = `${gridContainer.clientHeight / 16}px`
+// };
+
 for (let i = 0; i < 256; i++) {
     let div = document.createElement('div');
     gridContainer.appendChild(div);
     div.classList.add('gridSquare');
-    div.style.width = `${gridContainer.clientWidth / 16}px`
-    div.style.height = `${gridContainer.clientHeight / 16}px`
+    div.style.width = `${100/16}%`
+    div.style.height = `${100/16}%`
 };
 
 
@@ -40,8 +50,8 @@ newGridBtn.addEventListener('click', function createNewGrid () {
         for (let i = 0; i < (newDimensions * newDimensions); i++) {
             let div = document.createElement('div');
             gridContainer.appendChild(div);
-            div.style.width = `${gridContainer.clientWidth / newDimensions}px`
-            div.style.height = `${gridContainer.clientHeight / newDimensions}px`
+            div.style.width = `${100/newDimensions}%`
+            div.style.height = `${100/newDimensions}%`
             div.classList.add('gridSquare');
             div.addEventListener('mouseenter', () => {
                 if (div.style.backgroundColor === '') {
