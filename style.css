@@ -22,7 +22,6 @@ body {
 
 #gridContainer {
   display: flex;
-
   height: 800px;
   width: 800px;
   flex-wrap: wrap;

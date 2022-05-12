@@ -1,16 +1,7 @@
 const gridContainer = document.querySelector('#gridContainer');
 const newGridBtn = document.querySelector('#newGridBtn');
 
-// Create initial grid
-// for (let i = 0; i < 256; i++) {
-//     gridContainer.clientHeight = gridContainer.clientWidth;
-//     let div = document.createElement('div');
-//     gridContainer.appendChild(div);
-//     div.classList.add('gridSquare');
-//     div.style.width = `${gridContainer.clientWidth / 16}px`
-//     div.style.height = `${gridContainer.clientHeight / 16}px`
-// };
-
+// Create initial 16 x 16 grid
 for (let i = 0; i < 256; i++) {
     let div = document.createElement('div');
     gridContainer.appendChild(div);
@@ -18,9 +9,7 @@ for (let i = 0; i < 256; i++) {
     div.style.width = `${100/16}%`
     div.style.height = `${100/16}%`
 };
-
-
-
+// Clearout existign grid
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
@@ -30,6 +19,7 @@ function removeAllChildNodes(parent) {
 function makeRandColor() {
     return `rgb(${(Math.round((Math.random())*255))}, ${(Math.round((Math.random())*255))}, ${(Math.round((Math.random())*255))})`
 }
+
 
 function darkenColor(gridSquare) {
     let rgb = gridSquare.style.backgroundColor
